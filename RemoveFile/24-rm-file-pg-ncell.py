@@ -1,14 +1,18 @@
 from pathlib import Path
 
-import datetime
 import configparser
+import logging
+
+# Config parse init
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-import logging
+# Log init
 logging.basicConfig(filename='debug.log', format='%(asctime)s:%(levelname)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
+# Local Variables
 file_location = config['Paths']['file_dir']
+file_type = config['Types']['file_type']
 
 try:
     logging.info('Script Started')
